@@ -1,0 +1,184 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    WELCOME BACK!
+{% endblock %}
+
+{% block main %}
+
+<html style="font-size: 16px;">
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Guest_Record.css') }}" media="screen">
+  </head>
+  <body class="u-body"><header class="u-align-center u-clearfix u-header u-image u-sticky u-sticky-6ba1 u-header" id="sec-61fc" data-image-width="2000" data-image-height="1333"><div class="u-clearfix u-sheet u-sheet-1">
+    <section class="u-clearfix u-section-1" id="carousel_657e">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h3>Guest scale:</h3>
+        <div style="position:relative; left: {{ pff }}px;">
+          <img src="{{url_for('static', filename='RStriangle.png')}}" width="30" height="30">
+        </div>
+        <img src="{{url_for('static', filename='gradient.png')}}" width="1050" height="30">
+        <div style="position:relative; left: {{ pff }}px;">
+          <img src="{{url_for('static', filename='RStrig.png')}}" width="55" height="55">
+        </div>
+        <h3>Host scale:</h3>
+        <div style="position:relative; left: {{ pfft }}px;">
+            <img src="{{url_for('static', filename='RStriangle.png')}}" width="30" height="30">
+        </div>
+        <img src="{{url_for('static', filename='gradient.png')}}" width="1050" height="30">
+        <div style="position:relative; left: {{ pfft }}px;">
+          <img src="{{url_for('static', filename='RStrig.png')}}" width="55" height="55">
+        </div>
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <div class="u-table u-table-responsive u-table-1">
+                    <table class="u-table-entity">
+                      <colgroup>
+                        <col width="54.6%">
+                        <col width="45.4%">
+                      </colgroup>
+                      <thead class="u-table-header u-table-header-1">
+                        <tr style="height: 95px;">
+                          <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell">Guest Summary</th>
+                          <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell"></th>
+                        </tr>
+                      </thead>
+                      <tbody class="u-table-body">
+                        <tr style="height: 29px;">
+                          <td class="u-table-cell">RoomSafe guest name: </td>
+                          <td class="u-table-cell">{{username}}</td>
+                        </tr>
+                        <tr style="height: 46px;">
+                          <td class="u-table-cell">Activity level:  </td>
+                          <td class="u-table-cell">{{Qb}}</td>
+                        </tr>
+                        <tr style="height: 46px;">
+                          <td class="u-table-cell">Duration of stay:</td>
+                          <td class="u-table-cell">{{hours}}h {{minutes}}</td>
+                        </tr>
+                        <tr style="height: 46px;">
+                          <td class="u-table-cell">Mask used: </td>
+                          <td class="u-table-cell">{{ pr }}</td>
+                        </tr>
+                        <tr style="height: 46px;">
+                          <td class="u-table-cell">Vaccination status:</td>
+                          <td class="u-table-cell"></td>
+                        </tr>
+                        <tr style="height: 46px;">
+                          <td class="u-table-cell">COVID status:&nbsp;</td>
+                          <td class="u-table-cell"></td>
+                        </tr>
+                        <tr style="height: 46px;">
+                          <td class="u-table-cell"></td>
+                          <td class="u-table-cell"></td>
+                        </tr>
+                        <tr style="height: 46px;">
+                          <td class="u-table-cell"></td>
+                          <td class="u-table-cell"></td>
+                        </tr>
+                        <tr style="height: 46px;">
+                          <td class="u-table-cell"></td>
+                          <td class="u-table-cell"></td>
+                        </tr>
+                                                <tr style="height: 46px;">
+                          <td class="u-table-cell"></td>
+                          <td class="u-table-cell"></td>
+                        </tr>
+                                                <tr style="height: 46px;">
+                          <td class="u-table-cell"></td>
+                          <td class="u-table-cell"></td>
+                        </tr>
+                                                <tr style="height: 46px;">
+                          <td class="u-table-cell"></td>
+                          <td class="u-table-cell"></td>
+                        </tr>
+                        <tr style="height: 46px;">
+                          <td class="u-table-cell">    </td>
+                          <td class="u-table-cell"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <div class="u-table u-table-responsive u-table-2">
+                    <table class="u-table-entity">
+                      <colgroup>
+                        <col width="49.9%">
+                        <col width="50.1%">
+                      </colgroup>
+                      <thead class="u-table-header u-table-header-2">
+                        <tr style="height: 95px;">
+                          <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-table-cell">Event Summary</th>
+                          <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-table-cell u-table-cell-30"></th>
+                        </tr>
+                      </thead>
+                      <tbody class="u-table-body">
+                        <tr style="height: 47px;">
+                          <td class="u-table-cell">RoomSafe event number:</td>
+                          <td class="u-table-cell">{{ Event_ID }}</td>
+                        </tr>
+                        <tr style="height: 45px;">
+                          <td class="u-table-cell">Event host:</td>
+                          <td class="u-table-cell">{{User_ID}}</td>
+                        </tr>
+                        <tr style="height: 45px;">
+                          <td class="u-table-cell">Event name:</td>
+                          <td class="u-table-cell">{{Event_Name}}</td>
+                        </tr>
+                        <tr style="height: 45px;">
+                          <td class="u-table-cell">Event location:</td>
+                          <td class="u-table-cell">{{location}}</td>
+                        </tr>
+                        <tr style="height: 45px;">
+                          <td class="u-table-cell">Event date / starting time:</td>
+                          <td class="u-table-cell">{{ event_date }}, starting time: {{ stime }}</td>
+                        </tr>
+                        <tr style="height: 45px;">
+                          <td class="u-table-cell">Room dimensions:</td>
+                          <td class="u-table-cell">{{ surfarea }}m², {{ceiling}}m ceiling</td>
+                        </tr>
+                        <tr style="height: 45px;">
+                          <td class="u-table-cell">Room ventilation level:</td>
+                          <td class="u-table-cell">{{recirculation}} air changes/h</td>
+                        </tr>
+                        <tr style="height: 45px;">
+                          <td class="u-table-cell">Event duration:</td>
+                          <td class="u-table-cell">{{ hours }}h {{ minutes }}</td>
+                        </tr>
+                        <tr style="height: 45px;">
+                          <td class="u-table-cell">Guests expected:</td>
+                          <td class="u-table-cell">{{ NEGuest }}</td>
+                        </tr>
+                        <tr style="height: 45px;">
+                          <td class="u-table-cell">Local conditions expected:&nbsp;</td>
+                          <td class="u-table-cell">{{ humidity1 }}% humidity</td>
+                        </tr>
+                        <tr style="height: 47px;">
+                          <td class="u-table-cell">Additional note:</td>
+                          <td class="u-table-cell">{{Description}}</td>
+                        </tr>
+                      </tbody>
+                      <tfoot class="u-table-footer">
+                        <tr style="height: 85px;">
+                          <td class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell">Date last updated:</td>
+                          <td class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell">{{LastUpdate}}</td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+{% endblock %}

@@ -1,0 +1,267 @@
+{% extends "layout.html" %}
+<!DOCTYPE html>
+
+
+{% block main %}
+<html style="font-size: 16px;">
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='HostedEvent_Edit_1.css') }}" media="screen">
+  </head>
+  <body class="u-body">
+    <style>
+    #modal{
+      position: fixed;
+      z-index: 99999;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+	    display: none;
+    }
+
+    #modal.open{
+    	display: block;
+    }
+    #modal .mask{
+    	background: black;
+    	opacity: 0.8;
+    	position: absolute;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+    }
+    #modal .container{
+      border-radius: 10px;
+	    position: relative;
+	    background: white;
+	    top: 50%;
+	    left: 15%;
+	    transform: translateX(-50%) translateY(-50%);
+	    width: 500px;
+	    height: auto;
+	    min-height: 50px;
+    }
+    #modal .container .message{
+    	padding: 5% 15% 5% 5%;
+    }
+    #modal .container a.close{
+	    position: absolute;
+	    right: 5%;
+	    top:5%;
+	    color: #ae7ede;
+	    font-size: 30px;
+    }
+    #modal .container a.close:hover{
+    	color: #410c75;
+    }
+    </style>
+    <section class="u-clearfix u-section-1" id="sec-1aab">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-form u-form-1">
+          <form action="/host" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 19px;">
+            <div class="u-form-group u-form-select u-label-top u-form-group-7">
+              <div class="u-form-select-wrapper">
+                <select id="select-06a8" name="recirculation" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required>
+                  <option value="0.1" disabled selected="selected">select ventilation type</option>
+                  <option value="0.3">Closed windows (0.3 air-changes/hr)</option>
+                  <option value="2">Open windows (2.0 ACH)</option>
+                  <option value="3">Mechanical ventilation (3.0 ACH)</option>
+                  <option value="6">Open windows with fan (6.0 ACH)</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-checkbox u-form-group u-label-top u-form-group-9">
+              <input type="checkbox" id="checkbox-7f93" name="checkbox-1" value="On" onclick="enable_cb()">
+              <label for="checkbox-7f93" class="u-label">Air filter used  &nbsp;</label><a href="#" onclick="function open_mod(){var modal = document.getElementById('modal'); modal.getElementsByClassName('message')[0].innerHTML = 'Air filters recirculate the room air and remove particulate matter. The MERV rating of your air filter specifies the efficiency of your product at combing the air, in this case for aerosol droplets. '; modal.className += 'open';} open_mod(); return false;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+            </div>
+            <div class="u-form-group u-form-select u-label-top u-form-group-10">
+              <label for="select-6b2d" class="u-form-control-hidden u-label"></label>
+              <div class="u-form-select-wrapper">
+                <select id="select-6b2d" name="outdoor" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" >
+                  <option value="0.001" disabled selected="selected">select air filter quality </option>
+                  <option value="0.99">≥ MERV 17 – HEPA or ULPA filter (99% efficiency) </option>
+                  <option value="0.9">MERV 14 - surgery quality (90%) </option>
+                  <option value="0.6">MERV 10 - hospital quality (60%) </option>
+                  <option value="0.2">MERV 6 - industrial quality (20%) </option>
+                  <option value="0.1">MERV 2 - residential window air condition (10%)</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-select u-label-top u-form-group-10">
+              <label for="select-6bb2d" class="u-form-control-hidden u-label"></label>
+              <div class="u-form-select-wrapper">
+                <select id="select-6bb2d" name="filtration" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                  <option value="0.001" disabled selected="selected">Recirculation rate</option>
+                  <option value="0.3">slow (0.3 air-changes/hr) </option>
+                  <option value="1">moderate (1.0 ACH) </option>
+                  <option value="10">fast (10.0 ACH) </option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-select u-label-top u-form-group-1">
+              <hr>
+              <strong><h5> Activity information
+              </h5></strong>
+              <hr>
+              <label for="select-b568" class="u-label">Activity level at event &nbsp;</label><a href="#" onclick="function open_mod(){var modal = document.getElementById('modal'); modal.getElementsByClassName('message')[0].innerHTML = 'Aerosol droplets carry the SARS-CoV-2 virus. Intense activity causes more emission of aerosol droplets, while speech volume leads to a higher concentration of aerosol droplets in exhaled air, e.g., singing and shouting are more spread COVID-19 more easily than whispering and gentle speech. '; modal.className += 'open';} open_mod(); return false;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+              <div class="u-form-select-wrapper">
+                <select id="select-b568" name="Qbh" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+                  <option value="0.1" disabled selected>select level of activity expected</option>
+                  <option value="0.5">stationary (0.5 m³/hr breathing rate)</option>
+                  <option value="1.38">low exertion (1.38 m³/hr)</option>
+                  <option value="2.35">moderate exertion (2.35 m³/hr)</option>
+                  <option value="3.3">high exertion (3.30 m³/hr)</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-select u-label-top u-form-group-2">
+            <label for="select-6c09" class="u-form-control-hidden u-label"></label>
+              <div class="u-form-select-wrapper">
+                <select id="select-6c09" name="Cqh" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                  <option value="0.1" disabled selected>select level of speaking expected</option>
+                  <option value="9">silence (9 quanta/m³)</option>
+                  <option value="29">whispering (29 q/m³)</option>
+                  <option value="72">talking (72 q/ m³)</option>
+                  <option value="142">loud talking (142 q/m³)</option>
+                  <option value="970">singing (970 q/m³)</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-checkbox u-form-group u-label-top u-form-group-7">
+              <input type="checkbox" id="checkbox-ec0f" name="checkbox-3" value="On" onclick="enable_cb()">
+              <label for="checkbox-ec0f" class="u-label">Food / beverage served &nbsp;</label><a href="#" onclick="function open_mod(){var modal = document.getElementById('modal'); modal.getElementsByClassName('message')[0].innerHTML = 'Food and beverage service causes guests to remove their masks. Mingling mixes the air while seating leads to stagnant air.  Note: the duration of the food/beverage service should be less than or the same as the duration of the event!'; modal.className += 'open';} open_mod(); return false;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+            </div>
+            <div class="u-form-group u-form-select u-label-top u-form-group-8">
+              <label for="select-2690" class="u-form-control-hidden u-label"></label>
+              <div class="u-form-select-wrapper">
+                <select id="select-2690" disabled name="ServMode" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                  <option value="0" disabled selected="selected">select service mode</option>
+                  <option value="seated">seated</option>
+                  <option value="mingling">mingling</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-partition-factor-3 u-form-select u-label-top u-form-group-9">
+              <label for="select-110d" class="u-label">Timing of service</label>
+              <div class="u-form-select-wrapper">
+               <select id="select-110d" disabled name="ServTiming" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                  <option value="0" disabled selected="selected">select timing of service</option>
+                  <option value="beginning of event">beginning of event</option>
+                  <option value="middle of event">middle of event</option>
+                  <option value="end of event">end of event</option>
+                  <option value="full event">full event</option> 
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-partition-factor-3 u-form-select u-label-top u-form-group-10">
+              <label for="select-d93e" class="u-label">Duration of service</label>
+              <div class="u-form-select-wrapper">
+                <select id="select-d93e" disabled name="ServHours" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                  <option value="select hours" disabled selected="selected">select hours</option>
+                  <option value="1">1</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-partition-factor-3 u-form-select u-label-top u-form-group-11">
+              <label for="select-be80" class="u-form-control-hidden u-label"></label>
+              <div class="u-form-select-wrapper">
+                <select id="select-be80" disabled name="ServMinutes" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                  <option value="0" disabled selected="selected">select minutes</option>
+                  <option value="0">0</option>
+                  <option value="15">15</option>
+                  <option value="30">30</option>
+                  <option value="45">45</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-partition-factor-2 u-label-top u-form-group-11">
+              <hr>
+              <h5>Environmental information</h5>
+              <hr>
+              <label for="text-b318" class="u-label">Expected % humidity &nbsp;</label><a href="#" onclick="function open_mod(){var modal = document.getElementById('modal'); modal.getElementsByClassName('message')[0].innerHTML = 'For humidity, use the relative humidity forecast for the day of your event. The relative humidity is given as a percentage on many weather sites, e.g. https://www.bbc.com/weather As weather forecasts may change as you approach the date of the event, it is recommended to check and update this number. '; modal.className += 'open';} open_mod(); return false;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+              <input type="text" placeholder="% number" id="text-b318" name="humidity" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            </div>
+            <div class="u-form-group u-form-partition-factor-2 u-label-top u-form-group-12">
+              <label for="text-8eba" class="u-label">Approximate local incidence &nbsp;</label><a href="#" onclick="function open_mod(){var modal = document.getElementById('modal'); modal.getElementsByClassName('message')[0].innerHTML = 'The local incidence is the number of individuals infected with COVID-19 in a sample 100000 individuals in the region—in this case over a 7-day period.  Various COVID-related resources provide this number, e.g. https://www.statista.com/statistics/1139048/coronavirus-case-rates-in-the-past-7-days-in-europe-by-country/ As local incidence may change suddenly as you approach the date of the event, it is recommended to check and update this number. '; modal.className += 'open';} open_mod(); return false;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+              <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+              <input type="text" placeholder="number cases / 100,000 over last 7 days" id="text-8eba" name="localinci" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            </div>
+            <div class="u-align-right u-form-group u-form-submit">
+              <a href="HostedEvent_Edit_2.html" class="u-border-1 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-submit u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-1">next page</a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+            <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+            <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+            <input type="hidden" value="" name="recaptchaResponse">
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+<script>
+  var checkB = document.getElementById("checkbox-7f93")
+  var checkC = document.getElementById("checkbox-ec0f")
+
+  checkB.onchange = function() {
+     if (checkB.checked) {
+        document.getElementById("select-6b2d").removeAttribute("disabled");
+        document.getElementById("select-6bb2d").removeAttribute("disabled");
+        
+     } else {
+        document.getElementById("select-6b2d").setAttribute("disabled","disabled")
+        document.getElementById("select-6bb2d").setAttribute("disabled","disabled")
+     }
+  }
+  checkC.onchange = function() {
+     if (checkC.checked) {
+        document.getElementById("select-2690").removeAttribute("disabled");
+        document.getElementById("select-110d").removeAttribute("disabled");
+        document.getElementById("select-d93e").removeAttribute("disabled");
+        document.getElementById("select-be80").removeAttribute("disabled");
+     } else {
+        document.getElementById("select-2690").setAttribute("disabled","disabled")
+        document.getElementById("select-110d").setAttribute("disabled","disabled")
+        document.getElementById("select-d93e").setAttribute("disabled","disabled")
+        document.getElementById("select-be80").setAttribute("disabled","disabled")
+     }
+  }  
+  $(".bouton").click(function(){
+	  $("#modal .message").html("Contenu de ma modal");
+	  $("#modal").addClass("open");
+  });
+  $("#modal .mask, #modal a.close").click(function(){
+	  $("#modal").removeClass("open");
+	  return false;
+  });
+</script>
+{% endblock %}

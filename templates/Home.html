@@ -1,0 +1,151 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    WELCOME BACK!
+{% endblock %}
+
+{% block main %}
+<html style="font-size: 16px;">
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Home.css') }}" media="screen">
+  </head>
+  <body class="u-body">
+    <form method="POST">
+    <section class="u-align-left u-clearfix u-section-1" id="sec-d4f2">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <strong>
+        <h4><br><br>Events
+        </h4>
+        </strong>
+        <div class="u-accordion u-expanded-width u-spacing-5 u-accordion-1">
+          <div class="u-accordion-item">
+            <a class="active u-accordion-link u-button-style u-accordion-link-1" id="link-7264" aria-controls="7264" aria-selected="true">
+              <span class="u-accordion-link-text">My hosted events</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-177e"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-177e"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	        c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-active u-accordion-pane u-container-style u-accordion-pane-1" id="7264" aria-labelledby="link-7264">
+              <div class="u-container-layout u-container-layout-1">
+                <div class="u-expanded-width u-table u-table-responsive u-table-1">
+                  <table class="u-table-entity">
+                    <thead class="u-table-header u-table-header-1">
+                      <tr style="height: 59px;">
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell">Event date</th>
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell">Event name</th>
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell">Event number</th>
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell">Guests</th>
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell">RoomSafe Score</th>
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell"> Last updated</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody class="u-table-body">
+                      {% for result in results %}
+                      <tr style="height: 38px;">
+                        <td>{{result[2]}}</td>
+                        <td><var><button class="btn btn-link" type="submit" id="{{result[1]}}" onclick="check(this.id)">
+                          {{result[0]}}
+                        </button></var></td>
+                        <td>{{result[1]}}<a class="btn btn-sm" style="text-align: center;"type="button" id="{{result[1]}}" onclick="copy(this.id)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard2-check" viewBox="0 0 16 16">
+                          <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+                          <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+                          <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z"/>
+                        </svg></a></td>
+                        <td>{{result[6]}}/{{result[5]}}</td>
+                        <td>{{result[4]}}/10</td>
+                        <td>{{result[3]}}</td>
+                      </tr>
+                      {% endfor %}
+                  </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-accordion-item">
+            <a class="u-accordion-link u-button-style u-accordion-link-2" id="link-77a8" aria-controls="77a8" aria-selected="false">
+              <span class="u-accordion-link-text">My attended events</span><span class="u-accordion-link-icon u-icon u-icon-circle u-text-palette-1-base u-icon-2"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 16 16" style=""><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-68ac"></use></svg><svg class="u-svg-content" viewBox="0 0 16 16" x="0px" y="0px" id="svg-68ac"><path d="M8,10.7L1.6,5.3c-0.4-0.4-1-0.4-1.3,0c-0.4,0.4-0.4,0.9,0,1.3l7.2,6.1c0.1,0.1,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2l7.1-6
+	c0.4-0.4,0.4-0.9,0-1.3c-0.4-0.4-1-0.4-1.3,0L8,10.7z"></path></svg></span>
+            </a>
+            <div class="u-accordion-pane u-container-style u-accordion-pane-2" id="77a8" aria-labelledby="link-77a8">
+              <div class="u-container-layout u-container-layout-2">
+                <div class="u-expanded-width u-table u-table-responsive u-table-2">
+                  <table class="u-table-entity">
+
+                    <thead class="u-table-header u-table-header-2">
+                      <tr style="height: 46px;">
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell">Event date</th>
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell">Event name</th>
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell">Event number</th>
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell">Guests</th>
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell">SafeGuest Score</th>
+                        <th class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-border-no-top u-table-cell"> Last updated</th>
+                      </tr>
+                    </thead>
+                    
+                    
+                    <tbody class="u-table-body">
+                      {% for otherresult in otherresults %}
+                      <tr style="height: 38px;">
+                        <td>{{otherresult[2]}}</td>
+                        <td><var><button class="btn btn-link" type="submit" id="{{otherresult[1]}}" onclick="check(this.id)">
+                          {{otherresult[0]}}
+                        </button></var></td>
+                        <td>{{otherresult[1]}} <a class="btn btn-sm" style="text-align: center;"type="button" id="{{otherresult[1]}}" onclick="copy(this.id)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard2-check" viewBox="0 0 16 16">
+                          <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+                          <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+                          <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z"/>
+                        </svg></a></td>
+                        <td>{{otherresult[6]}}/{{otherresult[5]}}</td>
+                        <td>{{otherresult[4]}}/10</td>
+                        <td>{{otherresult[3]}}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </form>
+  </body>
+</html>
+<div style="visibility:hidden">
+
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
+  <p>.</p>
+
+
+</div>
+<script>
+// get the text from the DOM Element: 
+
+
+function copy(id){
+  navigator.clipboard.writeText(id).then(function () {
+      alert('Copied! Send this code to all invited users!')
+  }, function () {
+      alert('Failure to copy. Check permissions for clipboard')
+  });
+}
+
+
+// when someone clicks on the <a class="copy-text"> element 
+// (which should be a <button>), execute the copy command:
+
+  function check(submit){
+      const Http = new XMLHttpRequest();
+      Http.open("GET", "/info?info=" + submit, true);
+      console.log(submit);
+      Http.send();
+      Http.onreadystatechange = (e) => {
+          console.log(Http.responseText);
+      };
+  }
+</script>
+{% endblock %}

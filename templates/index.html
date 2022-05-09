@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    WELCOME BACK!
+{% endblock %}
+
+{% block main %}
+<body>
+    <form class="form-inline" action="/" method="post">
+        <div class="row mr-0"></div>
+            <div class="col">
+                <label for="staticEmail2" class="sr-only">Email</label>
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="Find event here:">
+            </div>
+            <div class="col">
+                <label for="inputPassword2" class="sr-only">Password</label>
+                    <input type="text" class="form-control" id="inputPassword2" placeholder="Event ID" name="event_id">
+            </div>
+            <div class="col">
+                <button type="sumbit" class="btn btn-primary mb-2">Find Event</button>
+            </div>
+        </div>
+        <div class="w-100"></div>
+        <p>
+            <div class="form-group mr-0">
+                <p></p>
+                <div class="col">
+                    <small>
+                    Looking to 
+                        <Strong>
+                            Host    
+                        </Strong> 
+                        instead? Press here:
+                        <p></p>
+                        <a type="button" class="btn btn-secondary btn-sm btn-block btn-lg" href="https://ide-870d6cddac9747319f3ea5e5ddf6a929-8080.cs50.ws/host">Host</a>
+                    </small>
+                </div>
+            </div>     
+        </p>
+    </form>
+  
+    
+
+</body>
+{% endblock %}

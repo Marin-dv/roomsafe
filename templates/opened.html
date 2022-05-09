@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+<!DOCTYPE html>
+
+
+{% block main %}
+<html style="font-size: 16px;">
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='HostedEvent_Record4.css') }}" media="screen">
+  </head>
+  <style>
+    .k {
+      font-size: 150%;
+    }
+    img.one {
+    width: 100%;
+}
+  </style>
+  <body class="u-body">
+    <div class="container p-5">
+      <h3>Event : <br> <span color: #72FF89;>{{Event_ID}}</span> 
+      </h3>
+    </div>
+    <section class="u-clearfix u-section-1" id="sec-6147">
+
+      <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
+
+        <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+
+                <div class="u-container-layout u-container-layout-1">
+                  <h1 class="u-align-center u-custom-font u-font-titillium-web u-text u-text-1" data-animation-name="counter" data-animation-event="scroll" data-animation-duration="3000">
+                    <span class="k">{{HRj}}</span>/10
+                  </h1>
+                  <p class="u-text u-text-2"><span class="u-file-icon u-icon u-icon-1"><img src="images/3388833.png" alt=""></span> &nbsp;The <span style="font-weight: 700;">RoomSafe Score</span> is a standard measure designating the <span style="font-weight: 700;">risk of COVID-19 transmission at your event</span>. In general, any RoomSafe Score of 5 or higher is safe, and any RoomSafe Score lower than 5 is unsafe.&nbsp;
+                  </p>
+                  <img class="one"id="myimag" src="data:image/png;base64, {{ plot_url }}">
+                  &nbsp;The graph provides a visual summary of your event based on data initially entered by the host (see: Event details) and constantly updated as guests register.
+                  <p></p>
+                  <div class="u-table u-table-responsive u-table-2">
+                    <table class="u-table-entity">
+                      <colgroup>
+                        <col width="44.21%">
+                        <col width="55.79%">
+                      </colgroup>
+                      <tbody class="u-table-body">
+                        <tr style="height: 65px;">
+                          <td class="u-table-cell">Number of guest registered: </td>
+                          <td class="u-table-cell">{{GuestsReg}}/{{NEGuest}}</td>
+                        </tr>
+                        
+                      </tbody>
+                      <tfoot class="u-table-footer">
+                        <tr style="height: 65px;">
+                          <td class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell">&nbsp;Latest guest data added:</td>
+                          <td class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell">None</td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <div class="u-expanded-width u-table u-table-responsive u-table-1">
+                    <table class="u-table-entity">
+                      <colgroup>
+                        <col width="44.21%">
+                        <col width="55.79%">
+                      </colgroup>
+                      <thead class="u-table-header u-table-header-1">
+                        <tr style="height: 65px;">
+                          <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-table-cell">Event details</th>
+                          <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-table-cell u-table-cell-2"></th>
+                        </tr>
+                      </thead>
+                      <tbody class="u-table-body">
+                        <tr style="height: 65px;">
+                          <td class="u-table-cell">RoomSafe event number:</td>
+                          <td class="u-table-cell"> {{Event_ID}}</td>
+                        </tr>
+                        <tr style="height: 65px;">
+                          <td class="u-table-cell">Event host:</td>
+                          <td class="u-table-cell">{{ User_ID}}</td>
+                        </tr>
+                        <tr style="height: 65px;">
+                          <td class="u-table-cell">Event:</td>
+                          <td class="u-table-cell">{{name}} ({{location}})</td>
+                        </tr>
+                        <tr style="height: 65px;">
+                          <td class="u-table-cell">Event date / time:</td>
+                          <td class="u-table-cell">{{event_date}}, {{stime}} (will last {{hours}}h{{minutes}})</td>
+                        </tr>
+                        <tr style="height: 65px;">
+                          <td class="u-table-cell">Guests expected:</td>
+                          <td class="u-table-cell">{{NEGuest}}, age profile: {{ageAvgs}}</td>
+                        </tr>
+                        <tr style="height: 65px;">
+                          <td class="u-table-cell">Activity level:</td>
+                          <td class="u-table-cell">{{Qbhs}} with {{Cqhs}}<br></td>
+                        </tr>
+                        <tr style="height: 65px;">
+                          <td class="u-table-cell">Mask use expected:</td>
+                          <td class="u-table-cell">{{MaskReqs}}</td>
+                        </tr>
+                        <tr style="height: 65px;">
+                          <td class="u-table-cell">Venue information:</td>
+                          <td class="u-table-cell">{{surfarea}} m² surface area, {{ceiling}}m high</td>
+                        </tr>
+                        <tr style="height: 65px;">
+                          <td class="u-table-cell">Local conditions expected:&nbsp;</td>
+                          <td class="u-table-cell">{{humidity}}% relative humidity, 7-day local incidence of {{localinci}}/100,000</td>
+                        </tr>
+                        <tr style="height: 65px;">
+                          <td class="u-table-cell">Additional note:</td>
+                          <td class="u-table-cell">{{Description}}</td>
+                        </tr>
+                      </tbody>
+                      <tfoot class="u-table-footer">
+                        <tr style="height: 65px;">
+                          <td class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell">Last updated by host:</td>
+                          <td class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell">{{LastUpdate}}</td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                  <a href="/" class="u-align-right u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-1">CLOSE</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+{% endblock %}

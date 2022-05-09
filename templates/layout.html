@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="keywords" content="It&amp;apos;s That Design Feeling">
+        <meta name="description" content="">
+        <meta name="page_type" content="np-template-header-footer-from-plugin">
+        <title>Home</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='nicepage.css') }}" media="screen">
+        <script class="u-script" type="text/javascript" src="{{ url_for('static', filename="jquery.js") }}" defer=""></script>
+        <script class="u-script" type="text/javascript" src="{{ url_for('static', filename="nicepage.js") }}" defer=""></script>
+        <meta name="generator" content="Nicepage 4.1.0, nicepage.com">
+        <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+        
+<script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/default-logo.png"
+}</script>
+        <meta name="theme-color" content="#478ac9">
+        <meta property="og:title" content="Home">
+        <meta property="og:type" content="website">
+
+
+
+
+
+
+
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <!-- https://favicon.io/emoji-favicons/money-mouth-face/ -->
+        <link href="static/favicon.ico" rel="icon">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <title>RoomSafe: {% block title %}{% endblock %}</title>
+        <header class="u-clearfix u-header u-image u-sticky u-header" id="sec-61fc">
+    </head>
+        
+    <body>
+        
+        
+        <!--- 
+        <style>
+        body {
+            background-image: url('/static/back.jpg');
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: cover;
+            }
+        </style>
+        navbar navbar-success bg-success PUT IN HEADER TAG
+        --->
+        <!--- <nav class="navbar navbar-expand-md navbar-light bg-light border"> --->
+        <style>
+            .fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-out;
+	animation-duration: 0.2s;
+}
+
+#modal{
+      position: fixed;
+      z-index: 99999;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+	    display: none;
+    }
+
+    #modal.open{
+    	display: block;
+    }
+    #modal .mask{
+    	background: black;
+    	opacity: 0.8;
+    	position: absolute;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+    }
+    #modal .container{
+      border-radius: 10px;
+	    position: relative;
+	    background: white;
+	    top: 50%;
+	    left: 15%;
+	    transform: translateX(-50%) translateY(-50%);
+	    width: 20%;
+	    height: auto;
+	    min-height: 50px;
+    }
+    #modal .container .message{
+    	padding: 5% 15% 5% 5%;
+    }
+    #modal .container a.close{
+	    position: absolute;
+	    right: 5%;
+	    top:5%;
+	    color: #ae7ede;
+	    font-size: 30px;
+    }
+    #modal .container a.close:hover{
+    	color: #410c75;
+    }
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+        transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+        transform: translateY(0);
+	}
+}
+        .img-nav{
+            position: relative;
+            top: 55px;
+	        right: 330%;
+        }
+        .navbar-inner{
+            background-image: url('/static/navback2.jpg');
+            background-repeat: repeat-x;
+        }
+        </style>
+        <header class="u-align-center u-clearfix u-header u-image  u-header navbar navbar-inner" id="sec-61fc"><div class="u-clearfix u-sheet u-sheet-1">
+        <nav class=" u-menu u-menu-dropdown u-offcanvas u-menu-1" data-responsive-from="XL">
+            <div class="img-nav">
+                <img src="/static/favicon.ico" width="60" height="60">
+                <a class="navbar-brand" href="/"><l style="color: white"> <span> <font size="+2"> R</font></span><span>oom</span><span><font size="+2">S</font></span><span>afe</span></l></a>
+                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="menu-collapse">
+                
+            <a class="u-button-style u-nav-link" href="#" style="padding: 9px 4px; font-size: calc(1em + 18px);">
+              <svg viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+            </symbol>
+            </defs></svg>
+            </a>
+            </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-container-style u-inner-container-layout u-palette-5-base u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                {% if session.user_id %}
+                <ul class="u-align-left u-nav u-popupmenu-items u-spacing-19 u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/">Home</a>
+                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/host">Create RS Event (Host)</a>
+                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/guestlog">Attend RS Event (Guest)</a>
+
+                    </li></ul>
+                <ul class="u-align-left u-nav u-popupmenu-items u-spacing-19 u-unstyled u-nav-2"><li class="u-nav-item">
+                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/profile">Profile</a>
+                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/front-page">About</a>
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="/logout">Log Out</a></li>
+                </ul>
+                {% else %}
+                <ul class="u-align-left u-nav u-popupmenu-items u-spacing-19 u-unstyled u-nav-2"><li class="u-nav-item">
+                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/register">Register</a>
+                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/login">Login</a>
+                    </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/front-page">Front page</a>
+
+                    </li>
+                </ul>
+                {% endif %}
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+        </header></div>
+            
+            
+            
+            
+        <!---     
+            <div class="collapse navbar-collapse" id="navbar">
+                {% if session.user_id %}
+                    <ul class="navbar-nav mr-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/files">Hosted Events</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/filesguest">Guest Events</a></li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+                    </ul>
+                {% else %}
+                    <ul class="navbar-nav ml-auto mt-2">
+                        <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                    </ul>
+                {% endif %}
+            </div>
+            style="position:relative; top:400px;"
+        </nav> --->
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary border text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+        
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+        
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-1507"><div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">----------------------------</p>
+      </div><div class="u-clearfix">
+          <span class="u-text"><small>
+        contact us at admin@roomsafe.eu
+        for any questions or recommendations<br>Attend Non-RS event upcoming soon!</small></span>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80"> 
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <span class="u-text">
+        <span>created with</span>
+      </span>
+      <a class="u-link" href="https://nicepage.dev/" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+      <p></p>
+    </section>
+    </body>
+
+</html>

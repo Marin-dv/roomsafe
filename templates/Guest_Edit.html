@@ -1,0 +1,351 @@
+{% extends "layout.html" %}
+<!DOCTYPE html>
+
+
+{% block main %}
+<html style="font-size: 16px;">
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Guest_Edit.css') }}" media="screen">
+  </head>
+  <style>
+    body {
+	background-color: white !important;
+
+}
+
+* {
+  transition: all .3s ease;
+}
+
+.extra-info {
+  display: none;
+  font-size: 18px;
+  max-width:350px;
+	position: relative;
+  left: 30px;
+  z-index: 2 !important;
+  top: -20px;
+}
+
+
+.info:hover .extra-info {
+  display: block;
+}
+
+
+.info {
+  position: absolute;
+  padding-left: 5px;
+  width: 100px;
+  border-radius: 15px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.info:hover {
+  background-color:  #CECECE;
+  padding: 0 0 0 5px;
+  width: 400px;
+  z-index: 2 !important;
+  text-align: left !important;
+}
+  </style>
+  <body class="u-body">
+    <section class="u-clearfix u-section-1" id="carousel_657e">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <div class="u-expanded-width u-table u-table-responsive u-table-1">
+                    <table class="u-table-entity">
+                      <colgroup>
+                        <col width="100%">
+                      </colgroup>
+                      <tbody class="u-table-body u-table-body-1">
+                        <tr style="height: 96px;">
+                          <td class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell">Guest Data</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="u-form u-form-1">
+                    <form action="/guest" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 19px;">
+                      <div class="u-form-group u-form-select u-label-top u-form-group-1">
+                        <label for="select-b568" class="u-label">Activity level at event<div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">Aerosol droplets carry the SARS-CoV-2 virus. Intense activity causes more emission of aerosol droplets, while speech volume leads to a higher concentration of aerosol droplets in exhaled air, e.g., singing and shouting spread COVID-19 more easily than whispering and gentle speech. (Note: 1 quantum = 1 expected transmission)</span>
+                        </div></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-b568" name="Qb" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+                            <option value="select level of activity expected" disabled selected="selected">select level of activity expected</option>
+                            <option value="0.5">stationary (0.5 m³/hr breathing rate)</option>
+                            <option value="1.38">low exertion (1.38 m³/hr)</option>
+                            <option value="2.35">moderate exertion (2.35 m³/hr)</option>
+                            <option value="3.3">high exertion (3.30 m³/hr)</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-select u-label-top u-form-group-2">
+                        <label for="select-6c09" class="u-form-control-hidden u-label"></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-6c09" name="Cq" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option value="select level of speaking expected" disabled selected="selected">select level of speaking expected</option>
+                            <option value="9">silence (9 quanta/m³)</option>
+                            <option value="29">whispering (29 q/m³)</option>
+                            <option value="72">talking (72 q/ m³)</option>
+                            <option value="142">loud talking (142 q/m³)</option>
+                            <option value="970">singing (970 q/m³)</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-select u-label-top u-form-group-1">
+
+                      <label for="select-d93e" class="u-label">Duration & Timing of stay at event<div class="info">
+                        <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                          <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                          <span class="extra-info">Safety is linked to the number and length of contacts at an event. The longer guests are together, the more likely exposure becomes. Meal or beverage service can also increase risk.</span>
+                      </div></label>
+
+                      </div>
+                      <div class="u-form-group u-form-partition-factor-2 u-form-select u-label-top u-form-group-3">
+
+                        <div class="u-form-select-wrapper">
+                          <select id="select-d93e" name="Th" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option value="select hours" disabled selected="selected">select hours</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-partition-factor-2 u-form-select u-label-top u-form-group-4">
+                        <label for="select-be80" class="u-form-control-hidden u-label"></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-be80" name="Tm" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option value="select minutes" disabled selected="selected">select minutes</option>
+                            <option value="0">0</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-select u-label-top u-form-group-5">
+                        <div class="u-form-select-wrapper">
+                          <select id="select-110d" name="Tstay" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option value="0" disabled selected="selected">select timing of stay</option>
+                            <option value="a">beginning of event</option>
+                            <option value="b">middle of event</option>
+                            <option value="c">end of event</option>
+                            <option value="z">full event</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-select u-label-top u-form-group-6">
+                        <label for="select-f5be" class="u-label">Mask used at event<div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">Masks work by filtering aerosols, thus reducing the risk of airborne transmission. Different mask types vary in their efficacy at filtering aerosols.</span>
+                        </div></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-f5be" name="pm" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option value="select mask type" disabled selected="selected">select mask type</option>
+                            <option value="1">None (0%) </option>
+                            <option value="0.5">Single layer textile (50%) </option>
+                            <option value="0.3">Multilayer textile (70%) </option>
+                            <option value="0.1">Disposable surgical (90%) </option>
+                            <option value="0.05">N95 (95%) </option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-select u-label-top u-form-group-2">
+                        <label for="select-b566" class="u-label">Age group<div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">Vulnerability to COVID-19 increases with age.</span>
+                        </div></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-b566" name="age" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+                            <option value="" disabled selected>Select age group</option>
+                            <option value="0.23">child (0-14)</option>
+                            <option value="0.68">adult (15-64)</option>
+                            <option value="1">elderly (65+)</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-select u-label-top u-form-group-7">
+                        <label for="select-124b" class="u-label">Vaccination status<div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">Vaccination or recent recovery from COVID-19 affect your immunity as well as the likelihood of infection prior to the event. Guests who are vaccinated (or recently recovered) are less likely to spread and catch COVID-19.</span>
+                        </div></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-124b" name="Vs" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option value="" disabled selected="selected">select vaccine stage</option>
+                            <option value="1">not vaccinated</option>
+                            <option value="0.46">first dose</option>
+                            <option value="0.198">second dose</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <!---
+                      <div class="u-form-group u-form-select u-label-top u-form-group-8">
+                        <label for="select-2690" class="u-form-control-hidden u-label"></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-2690" name="Vt" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option value="select timing of most recent dose" disabled selected="selected">select timing of most recent dose</option>
+                            <option value="not received">not received</option>
+                            <option value="0-1 months">0-1 months</option>
+                            <option value="1-2 months">1-2 months</option>
+                            <option value="2-3 months">2-3 months</option>
+                            <option value="3-4 months">3-4 months</option>
+                            <option value="4-5 months">4-5 months</option>
+                            <option value="5-6 months">5-6 months</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-checkbox u-form-group u-label-top u-form-group-9">
+                        <input type="checkbox" id="checkbox-4ec2" name="checkbox" value="On" onclick="enable_cb()">
+                        <label for="checkbox-4ec2" class="u-label">Recovered from COVID</label>
+                      </div>
+                      <div class="u-form-group u-form-select u-label-top u-form-group-10">
+                        <label for="select-f62b" class="u-form-control-hidden u-label"></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-f62b" name="Rt" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" disabled>
+                            <option value="select timing of most recent positive test" disabled selected="selected">select timing of most recent positive test</option>
+                            <option value="0-1 months">0-1 months</option>
+                            <option value="1-2 months">1-2 months</option>
+                            <option value="2-3 months">2-3 months</option>
+                            <option value="3-4 months">3-4 months</option>
+                            <option value="4-5 months">4-5 months</option>
+                            <option value="5-6 months">5-6 months</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      --->
+                      <div class="u-align-right u-form-group u-form-submit">
+                        <a href="#" class="u-active-none u-border-1 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-submit u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-1">SUBMIT</a>
+                        <input type="submit" value="submit" class="u-form-control-hidden">
+                      </div>
+                      <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+                      <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                      <input type="hidden" value="" name="recaptchaResponse">
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-valign-top u-container-layout-2">
+                  <div class="u-table u-table-responsive u-table-2">
+                    <table class="u-table-entity">
+                      <colgroup>
+                        <col width="52.8%">
+                        <col width="47.2%">
+                      </colgroup>
+                      <thead class="u-table-header u-table-header-1">
+                        <tr style="height: 95px;">
+                          <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-table-cell">Event Summary</th>
+                          <th class="u-border-2 u-border-grey-75 u-border-no-left u-border-no-right u-table-cell u-table-cell-3"></th>
+                        </tr>
+                      </thead>
+                      <tbody class="u-table-body">
+                        <tr style="height: 59px;">
+                          <td class="u-table-cell">RoomSafe event number: </td>
+                          <td class="u-table-cell">{{ Event_ID }}</td>
+                        </tr>
+                        <tr style="height: 57px;">
+                          <td class="u-table-cell">Event host: </td>
+                          <td class="u-table-cell">{{User_ID}}</td>
+                        </tr>
+                        <tr style="height: 57px;">
+                          <td class="u-table-cell">Event name:</td>
+                          <td class="u-table-cell">{{name}}</td>
+                        </tr>
+                        <tr style="height: 57px;">
+                          <td class="u-table-cell">Event location:</td>
+                          <td class="u-table-cell">{{location}}</td>
+                        </tr>
+                        <tr style="height: 57px;">
+                          <td class="u-table-cell">Event date / starting time:</td>
+                          <td class="u-table-cell">{{ event_date }}, starting time: {{ stime }}</td>
+                        </tr>
+                        <tr style="height: 57px;">
+                          <td class="u-table-cell">Room dimensions:</td>
+                          <td class="u-table-cell">{{ surfarea }}m², {{ceiling}}m ceiling</td>
+                        </tr>
+                        <tr style="height: 57px;">
+                          <td class="u-table-cell">Room ventilation level:</td>
+                          <td class="u-table-cell">{{recirculation}} air changes/h</td>
+                        </tr>
+                        <tr style="height: 57px;">
+                          <td class="u-table-cell">Event duration:</td>
+                          <td class="u-table-cell">{{ hours }}h {{ minutes }}</td>
+                        </tr>
+                        <tr style="height: 57px;">
+                          <td class="u-table-cell">Guests expected:</td>
+                          <td class="u-table-cell">{{ NEGuest }}</td>
+                        </tr>
+                        <tr style="height: 57px;">
+                          <td class="u-table-cell">Local conditions expected:&nbsp;</td>
+                          <td class="u-table-cell">{{ humidity }}% humidity</td>
+                        </tr>
+                        <tr style="height: 59px;">
+                          <td class="u-table-cell">Additional note:</td>
+                          <td class="u-table-cell">{{Description}}</td>
+                        </tr>
+                      </tbody>
+                      <tfoot class="u-table-footer">
+                        <tr style="height: 82px;">
+                          <td class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell">Date last updated:</td>
+                          <td class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell">{{LastUpdated}}</td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+<script>
+var checkB = document.getElementById("checkbox-4ec2")
+  checkB.onchange = function() {
+     if (checkB.checked) {
+        document.getElementById("select-f62b").removeAttribute("disabled");
+     } else {
+        document.getElementById("select-f62b").setAttribute("disabled","disabled")
+     }
+  }
+</script>
+{% endblock %}

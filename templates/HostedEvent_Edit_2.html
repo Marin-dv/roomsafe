@@ -1,0 +1,257 @@
+{% extends "layout.html" %}
+<!DOCTYPE html>
+
+
+{% block main %}
+<html style="font-size: 16px;">
+  <html>
+    <link rel="stylesheet" href="{{ url_for('static', filename='HostedEvent_Edit_2.css') }}" media="screen">
+  </html>
+  <strong><h4> Create/Modify Event (2)
+  </h4></strong>
+  <body class="u-body">
+        <style>
+
+    #modal{
+      position: fixed;
+      z-index: 99999;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+	    display: none;
+    }
+
+    #modal.open{
+    	display: block;
+    }
+    #modal .mask{
+    	background: black;
+    	opacity: 0.8;
+    	position: absolute;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    left: 0;
+    }
+    #modal .container{
+      border-radius: 10px;
+	    position: relative;
+	    background: white;
+	    top: 50%;
+	    left: 15%;
+	    transform: translateX(-50%) translateY(-50%);
+	    width: 500px;
+	    height: auto;
+	    min-height: 50px;
+    }
+    #modal .container .message{
+    	padding: 5% 15% 5% 5%;
+    }
+    #modal .container a.close{
+	    position: absolute;
+	    right: 5%;
+	    top:5%;
+	    color: #ad7fdb;
+	    font-size: 30px;
+    }
+    #modal .container a.close:hover{
+    	color: #410c75;
+    }
+    </style>
+    <divi></divi>
+    <div class="u-form-select-wrapper">
+      <select id="select-mask" name="masktype" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" onchange="hide()">
+        <option value="1">No mask graph(0%) </option>
+        <option value="0.5">Single layer textile graph(50%) </option>
+        <option selected="selected" value="0.3">Multilayer textile graph(70%) </option>
+        <option value="0.1">Disposable surgical graph(90%) </option>
+        <option value="0.05">N95 graph(95%) </option>
+      </select>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+    </div>
+    <div class="text-center image" id="N95">
+      <img src="data:image/png;base64, {{ plot_url1 }}">
+    </div>
+    <div class="text-center image" id="surgical">
+      <img src="data:image/png;base64, {{ plot_url2 }}">
+    </div>
+    <div id="multi" class="text-center image">
+      <img src="data:image/png;base64, {{ plot_url3 }}">
+    </div>
+    <div id="single" class="text-center image">
+      <img src="data:image/png;base64, {{ plot_url4 }}">
+    </div>
+    <div id="nomask" class="text-center image">
+      <img src="data:image/png;base64, {{ plot_url5 }}">
+    </div>
+    <p></p>
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <span class="u-file-icon u-icon u-icon-1"></span>The graph above has been generated based on the data you have already input. It shows the level of risk by number of attendees at your event and the duration of their stay--i.e. the length of the event--assuming all guests are wearing multilayer textile masks. The graph can help you set the number of guests, the duration of the event, and any mask requirements. If you wish to accommodate many guests in your space, you should consider limiting the duration of the event or better mask requirements. The risk tolerance used to generate this graph is 0.1. <span style="font-style: italic;">Note: The number entered should reflect the number of guests realistically expected to attend, rather than the number invited.  If the expected attendance changes as you approach the date of the event, it is recommended to update this number.</span>
+    </div>
+    <section class="u-clearfix u-section-2" id="sec-c5f4">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-form u-form-1">
+          <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 19px;" redirect="true">
+            <div class="u-form-group u-form-partition-factor-2 u-form-select u-label-top u-form-group-1">
+              <hr>
+              <h5>Final parameters</h5>
+              <hr>
+              <label for="select-b568" class="u-label">Duration of event &nbsp;</label>
+              <div id="modal">
+	             <div class="mask"></div>
+	             <div class="container auto popup">
+	  	          <div class="message"></div>
+		              <a href="#" class="close">&times;</a>
+	             </div>
+              </div>
+              <div class="u-form-select-wrapper">
+                <select id="select-b568" name="hour" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+                  <option value="select hours" disabled selected="selected">select hours</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-partition-factor-2 u-form-select u-label-top u-form-group-2">
+              <label for="select-6c09" class="u-form-control-hidden u-label"></label>
+              <div class="u-form-select-wrapper">
+                <select id="select-6c09" name="minute" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                  <option value="select minutes" disabled selected="selected">select minutes</option>
+                  <option value="0">0</option>
+                  <option value="15">15</option>
+                  <option value="30">30</option>
+                  <option value="45">45</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-label-top u-form-group-3">
+              <label for="text-8e81" class="u-label">Expected guests &nbsp;</label>
+              <input type="text" placeholder="enter expected attendance as number" id="text-8e81" name="NEGuest" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+            </div>
+
+            <div class="u-form-checkbox u-form-group u-label-top u-form-group-5">
+              <input type="checkbox" id="checkbox-90d7" name="checkbox-2" value="On" onclick="enable_cb()">
+              <label for="checkbox-90d7" class="u-label">Mask required &nbsp;</label>
+            </div>
+            <div class="u-form-group u-form-select u-label-top u-form-group-6">
+              <label for="select-f5be" class="u-form-control-hidden u-label"></label>
+              <div class="u-form-select-wrapper">
+                <div id="select-123">
+                <select id="select-f5be" name="MaskReq" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                  <option value="select mask" disabled selected="selected">select minimum level mask required</option>
+                  <option value="0.50">Single layer textile (50%) </option>
+                  <option value="0.30">Multilayer textile (70%) </option>
+                  <option value="0.1">Disposable surgical (90%) </option>
+                  <option value="0.05">N95 (95%) </option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="u-form-group u-label-top u-form-group-12">
+              <label for="text-2283" class="u-label">Event description / note</label>
+              <input type="text" id="text-2283" name="Description" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            </div>
+            <div class="u-align-right u-form-group u-form-submit">
+              <a href="#" class="u-active-none u-border-1 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-submit u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-1">SUBMIT</a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+            <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+            <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+            <input type="hidden" value="" name="recaptchaResponse">
+          </form>
+        </div>
+        <input type="button" class="u-active-none u-align-left u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2" value="Previous page" onclick="history.back()">
+      </div>
+    </section>
+  </body>
+</html>
+<script>
+if (document.getElementById("select-mask").value ==0.3){
+  document.getElementById('single').style.display = 'none';
+  document.getElementById('multi').style.display = 'block';
+  document.getElementById('surgical').style.display = 'none';
+  document.getElementById('N95').style.display = 'none';
+  document.getElementById('nomask').style.display = 'none';
+}
+function hide(){
+  if (document.getElementById("select-mask").value == 0.05){
+    document.getElementById('N95').style.display = 'block';
+    document.getElementById('single').style.display = 'none';
+    document.getElementById('multi').style.display = 'none';
+    document.getElementById('surgical').style.display = 'none';
+    document.getElementById('nomask').style.display = 'none';
+
+  }
+  if (document.getElementById("select-mask").value == 0.1){
+    document.getElementById('N95').style.display = 'none';
+    document.getElementById('single').style.display = 'none';
+    document.getElementById('multi').style.display = 'none';
+    document.getElementById('surgical').style.display = 'block';
+    document.getElementById('nomask').style.display = 'none';
+
+  }
+  if (document.getElementById("select-mask").value == 0.3){
+    document.getElementById('N95').style.display = 'none';
+    document.getElementById('single').style.display = 'none';
+    document.getElementById('multi').style.display = 'block';
+    document.getElementById('surgical').style.display = 'none';
+    document.getElementById('nomask').style.display = 'none';
+
+  }
+  if (document.getElementById("select-mask").value == 0.5){
+    document.getElementById('N95').style.display = 'none';
+    document.getElementById('single').style.display = 'block';
+    document.getElementById('multi').style.display = 'none';
+    document.getElementById('surgical').style.display = 'none';
+    document.getElementById('nomask').style.display = 'none';
+
+  }
+  if (document.getElementById("select-mask").value == 1){
+    document.getElementById('N95').style.display = 'none';
+    document.getElementById('single').style.display = 'none';
+    document.getElementById('multi').style.display = 'none';
+    document.getElementById('surgical').style.display = 'none';
+    document.getElementById('nomask').style.display = 'block';
+
+  }
+}
+if (true){
+  document.getElementById('select-f5be').style.display = 'none';
+}
+var checkB = document.getElementById("checkbox-90d7");
+  checkB.onchange = function() {
+     if (checkB.checked) {
+      document.getElementById('select-f5be').style.display = 'block';
+      document.getElementById('select-123').classList.add("fade-in")
+
+     } else {
+      document.getElementById('select-f5be').style.display = 'none';
+      document.getElementById('select-123').classList.remove("fade-in")
+
+     }
+  };
+  $(".bouton").click(function(){
+	  $("#modal .message").html("Contenu de ma modal");
+	  $("#modal").addClass("open");
+  });
+  $("#modal .mask, #modal a.close").click(function(){
+	  $("#modal").removeClass("open");
+	  return false;
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+<!DOCTYPE html>
+
+
+{% block main %}
+<html style="font-size: 16px;">
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='HostedEvent_Record.css') }}" media="screen">
+  </head>
+  <body class="u-body">
+    <form>
+    <div style="position:relative; left: {{ pff }}px;">
+        <img src="{{url_for('static', filename='RStriangle.png')}}" width="30" height="30">
+    </div>
+    <img src="{{url_for('static', filename='gradient.png')}}" width="1050" height="30">
+    <div style="position:relative; left: {{ pffo }}px;">
+        <img src="{{url_for('static', filename='RStrig.png')}}" width="55" height="55">
+    </div>
+    
+    <div class="text-center image">
+      <img id="myimag" src="data:image/png;base64, {{ plot_url }}">
+    </div>
+    <p></p>
+    <div class="text-center">
+      <i>The blue point represents your event.</i>
+    </div>
+    <section class="u-clearfix u-section-2" id="carousel_657e">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <a href="https://nicepage.com/templates" class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-1">Delete event</a>
+        <div class="u-table u-table-responsive u-table-1">
+          
+          <table class="u-table-entity">
+            <colgroup>
+              <col width="25.5%">
+              <col width="74.5%">
+            </colgroup>
+            <thead class="u-table-header">
+              <tr style="height: 37px;">
+                <th class="u-table-cell u-table-header-1">Event Summary</th>
+                <th class="u-table-cell u-table-cell-2"></th>
+              </tr>
+            </thead>
+            <tbody class="u-table-body">
+              <tr style="height: 45px;">
+                <td class="u-table-cell">RoomSafe event number: <td>{{Event_ID}}</td></td>
+                <td class="u-table-cell"></td>
+              </tr>
+
+              <tr style="height: 46px;">
+                <td class="u-table-cell">Event host:<td>{{User_ID}}</td></td>
+                <td class="u-table-cell"></td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-table-cell">Event name:<td>{{name}}</td></td>
+                <td class="u-table-cell"></td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-table-cell">Event location:<td>{{location}}</td></td>
+                <td class="u-table-cell"></td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-table-cell">Event date / starting time:<td>{{event_date}} / {{stime}}</td></td>
+                <td class="u-table-cell"></td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-table-cell">Room dimensions: <td>{{surfarea}}m2 (area of room), {{ceiling}}m (ceiling heigh)</td></td>
+                <td class="u-table-cell"></td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-table-cell">Room ventilation level: <td>{{recirculation}} -- {{filtration}}</td></td>
+                <td class="u-table-cell"></td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-table-cell">Event duration: <td>{{hours}}h {{minutes}}</td></td>
+                <td class="u-table-cell"></td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-table-cell">Guests expected: <td>{{NEGuest}}</td></td>
+                <td class="u-table-cell"></td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-table-cell">Local conditions expected:&nbsp; <td>{{localinci}}/100 000 COVID cases</td></td>
+                <td class="u-table-cell"></td>
+              </tr>
+              <tr style="height: 46px;">
+                <td class="u-table-cell">Additional note: <td>{{Description}}</td></td>
+                <td class="u-table-cell"></td>
+              </tr>
+            </tbody>
+            <tfoot class="u-table-footer">
+              <tr style="height: 38px;">
+                <td class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell">Date last updated:</td>
+                <td class="u-border-2 u-border-grey-dark-1 u-border-no-left u-border-no-right u-table-cell"> {{ LastUpdate }}</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+          <a href="HostedEvent_Edit_1.html" data-page-id="1517615194" class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">Modify event</a>
+
+      </div>
+      </form>
+    </section>
+  </body>
+</html>
+{% endblock %}

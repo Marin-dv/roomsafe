@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    WELCOME BACK!
+{% endblock %}
+
+{% block main %}
+<head>
+</head>
+<body>
+    <div style="position:relative; left: {{ pff }}px;">
+        <img src="{{url_for('static', filename='RStriangle.png')}}" width="30" height="30">
+    </div>
+    <img src="{{url_for('static', filename='gradient.png')}}" width="1050" height="30">
+    <div style="position:relative; left: {{ pffo }}px;">
+        <img src="{{url_for('static', filename='RStrig.png')}}" width="55" height="55">
+    </div>
+    <form class="form-inline" action="/" method="post">
+        <a type="button" class="btn btn-primary btn-sm btn-block btn-lg" href="https://ide-870d6cddac9747319f3ea5e5ddf6a929-8080.cs50.ws/">Main page</a>
+    </form>
+
+
+
+</body>
+{% endblock %}

@@ -1,0 +1,669 @@
+{% extends "layout.html" %}
+{% block main %}
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+<link rel="stylesheet" href="{{ url_for('static', filename='HostedEvent_Edit_25.css') }}" media="screen">
+  </head>
+  <style>
+          img.one {
+    width: 100%;
+    height : 100%;
+}
+textarea {
+  resize: none;
+}
+body {
+	background-color: white !important;
+
+}
+
+* {
+  transition: all .3s ease;
+}
+
+.extra-info {
+  display: none;
+  font-size: 18px;
+  max-width:350px;
+	position: relative;
+  left: 30px;
+  z-index: 2 !important;
+  top: -20px;
+}
+
+
+.info:hover .extra-info {
+  display: block;
+}
+
+
+.info {
+  position: absolute;
+  padding-left: 5px;
+  width: 100px;
+  border-radius: 15px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.info:hover {
+  background-color:  #CECECE;
+  padding: 0 0 0 5px;
+  width: 400px;
+  z-index: 2 !important;
+  text-align: left !important;
+}
+  </style>
+  <body class="u-body">
+    <section class="u-clearfix u-section-1" id="sec-36b0">
+      <div class="u-clearfix u-sheet u-sheet-1"></div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-c5f4">
+
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <strong><h4>Create/Modify Event (2)  
+            </h4></strong>
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                
+                <div>
+                  <p class="u-text u-text-1">
+                    <span style="font-size: 1.125rem;">This graph has been generated based on the data already entered. It will help set the
+                    final data to minimise risk.&nbsp;</span>
+
+                  <br>
+                  </p>
+                  
+                  <p></p>
+                  <div class="u-form u-form-2">
+                    <form action="#" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 10px;">
+                      <div id="N951">
+                        <img class="one" src="data:image/png;base64, {{ plot_url1 }}">
+                      </div>
+                      <div id="surgical1">
+                        <img class="one" src="data:image/png;base64, {{ plot_url2 }}">
+                      </div>
+                      <div id="multi1">
+                        <img class="one" src="data:image/png;base64, {{ plot_url3 }}">
+                      </div>
+                      <div id="single1">
+                        <img class="one" src="data:image/png;base64, {{ plot_url4 }}">
+                      </div>
+                      <div id="nomask1">
+                        <img class="one" src="data:image/png;base64, {{ plot_url5 }}">
+                      </div>
+                      <div id="N952">
+                        <img class="one" src="data:image/png;base64, {{ plot_url6 }}">
+                      </div>
+                      <div id="surgical2">
+                        <img class="one" src="data:image/png;base64, {{ plot_url7 }}">
+                      </div>
+                      <div id="multi2">
+                        <img class="one" src="data:image/png;base64, {{ plot_url8 }}">
+                      </div>
+                      <div id="single2">
+                        <img class="one" src="data:image/png;base64, {{ plot_url9 }}">
+                      </div>
+                      <div id="nomask2">
+                        <img class="one" src="data:image/png;base64, {{ plot_url10 }}">
+                      </div>
+                      <div id="N953">
+                        <img class="one" src="data:image/png;base64, {{ plot_url11 }}">
+                      </div>
+                      <div id="surgical3">
+                        <img class="one" src="data:image/png;base64, {{ plot_url12 }}">
+                      </div>
+                      <div id="multi3">
+                        <img class="one" src="data:image/png;base64, {{ plot_url13 }}">
+                      </div>
+                      <div id="single3">
+                        <img class="one" src="data:image/png;base64, {{ plot_url14 }}">
+                      </div>
+                      <div id="nomask3">
+                        <img class="one" src="data:image/png;base64, {{ plot_url15 }}">
+                      </div>
+                      <div class="u-form-group u-form-select u-form-group-7">
+                        <label for="select-aaec" class="u-label">Change graph mask value <div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">Masks work by filtering aerosols, thus reducing the risk of airborne transmission. Different mask types vary in their efficacy at filtering aerosols. Test the effects of different mask requirements above.</span>
+                        </div></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-mask" name="masktype" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-palette-5-light-3 u-input-6" onchange="hide()" required  >
+                            <option value="1">no mask</option>
+                            <option value="0.5">single-layer textile (50% filtration efficiency)</option>
+                            <option value="0.3" selected>multi-layer textile (70%)</option>
+                            <option value="0.1">disposable surgical (90%)</option>
+                            <option value="0.05">FFP2/N95 (95%)</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-select u-form-group-8">
+                        <label for="select-8a94" class="u-label">Change graph risk tolerance <div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">Only a fraction of cases are actually symptomatic. An even slimmer fraction result in hospitalisation. The host can determine the level of caution appropriate for an event. Test different risk tolerance levels above. 
+                              <br><i>In all cases, the RoomSafe Score is calculated based on a low risk tolerance.</i></span>
+                        </div></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="risk" name="select" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-palette-5-light-3 u-input-6" required="required" onchange="hide()">
+                            <option value="1">low tolerance (chance guest will get infected at the event &lt;10%)</option>
+                            <option value="0.1">moderate tolerance (chance guest will get infected and exhibit symptoms &lt;5% )</option>
+                            <option value="0.01">high tolerance (chance guest will get infected and need hospitalisation &lt;0.1%)</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+          
+                      <div class="u-align-left u-form-group u-form-submit">
+                        <a onclick="history.back()" class="u-active-none u-border-1 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-submit u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2"> << previous page</a>
+                        <input type="submit" value="submit" class="u-form-control-hidden">
+                      </div>
+                      <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+                      <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                      <input type="hidden" value="" name="recaptchaResponse">
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <p class="u-text u-text-2">
+                    <span style="font-size: 1.125rem;">Enter final data based on the graph and click submit to know RoomSafe Score. </span>
+                      <br><small style="color:#FF0000">* Mandatory fields</small>
+                  </p>
+                  
+                  <div class="u-expanded-width u-form u-form-1">
+                    
+                    <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 19px;" redirect="true">
+                      <div class="u-form-group u-label-top u-form-group-1">
+                      
+                        <label for="text-8e81" class="u-label">Expected guests <small style="color:#FF0000">*</small><div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">The host can control the safety of an event by setting the number and length of contacts at the event. Enter a combination of event size and duration which places the event in the safe<i> green</i> region of the graph. Min: 2 ; Max: 500</span>
+                        </div></label>
+                        <input type="text" placeholder="enter number of guests" id="text-8e81" name="NEGuest" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required  >
+                      </div>
+                      <div class="u-form-group u-form-partition-factor-2 u-form-select u-label-top u-form-group-1">
+                        <label for="select-b568" class="u-label">Duration of event <small style="color:#FF0000">*</small><div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">The host can control the safety of an event by setting the number and length of contacts at the event to minimise risk. Enter a combination of event size and duration which places the event in the safe <i>green</i> region of the graph.</span>
+                        </div></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-b568" name="hour" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required  >
+                            <option value="0" selected="selected">select hours</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-partition-factor-2 u-form-select u-label-top u-form-group-2">
+                        <label for="select-6c09" class="u-form-control-hidden u-label"></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-6c09" name="minute" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option value="0" selected="selected">select minutes</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-select u-label-top u-form-group-3">
+                        <label for="select-123" class="u-label">Mask use expected <small style="color:#FF0000">*</small><div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">Select the mask type to be worn by most of the guests attending. If unknown, then it is cautious to select a low efficiency type or no mask.</span>
+                        </div></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="masktype" name="MaskReq" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" onchange="hide()"required  >
+                            <option value="1">no mask</option>
+                            <option value="0.5">single-layer textile (50% filtration efficiency)</option>
+                            <option value="0.3">multi-layer textile (70%)</option>
+                            <option value="0.1">disposable surgical (90%)</option>
+                            <option value="0.05">FFP2/N95 (95%)</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                                  <!---
+                      <div class="u-form-group u-form-select u-label-top u-form-group-3">
+                        <label for="select-3808" class="u-label">Risk Tolerance chosen <div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">Select the risk tolerance you have chosen from the graph preview.</span>
+                        </div></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="RiskTolerance" name="RiskTolerance" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" onchange="hide()"required  >
+                            <option disabled selected>Select risk tolerance</option>                            
+                            <option value="1">low tolerance (chance guest will get infected at the event &lt;10%)</option>
+                            <option value="0.1">moderate tolerance (chance guest will get infected and exhibit symptoms &lt;5% )</option>
+                            <option value="0.01">high tolerance (chance guest will get infected and need hospitalisation &lt;0.1%)</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      --->
+                      <div class="u-form-checkbox u-form-group u-label-top u-form-group-4">
+                        <input type="checkbox" id="checkbox-ec0f" name="checkbox-3" value="On">
+                        <label for="checkbox-ec0f" class="u-label">Food / beverage served <div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">Guests must remove masks while eating or drinking. This eliminates mask aerosol filtration effects. Select the approximate timing and duration of the meal and beverage service.  
+                              This information can also be useful for guests, even if masks are not required.</span>
+                        </div></label>
+                      </div>
+                      <div class="u-form-group u-form-select u-label-top u-form-group-8" id="select-2690">
+                        <label for="select-2690" class="u-form-control-hidden u-label"></label>
+                        <div class="u-form-select-wrapper">
+                          <div id="select-1234">
+                          <select id="select-2690" name="ServMode" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option disabled selected="selected">select service mode</option>
+                            <option value="seated">seated</option>
+                            <option value="mingling">mingling</option>
+                          </select>
+                          </div>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-partition-factor-3 u-form-select u-label-top u-form-group-9" id="select-110d">
+                        <label for="select-110d" class="u-label">Timing of service</label>
+                        <div class="u-form-select-wrapper">
+                         <select id="select-110d" name="ServTiming" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option disabled selected="selected">select timing of service</option>
+                            <option value="a">beginning of event</option>
+                            <option value="b">middle of event</option>
+                            <option value="c">end of event</option>
+                            <option value="z">full event</option> 
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-partition-factor-3 u-form-select u-label-top u-form-group-10" id="select-d93e">
+                        <label for="select-d93e" class="u-label">Duration of service</label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-d93e" name="ServHours" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option disabled selected="selected">select hours</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-form-partition-factor-3 u-form-select u-label-top u-form-group-11"  id="select-be80">
+                        <label for="select-be80" class="u-form-control-hidden u-label"></label>
+                        <div class="u-form-select-wrapper">
+                          <select id="select-be80" name="ServMinutes" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                            <option disabled selected="selected">select minutes</option>
+                            <option value="0">0</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                          </select>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                        </div>
+                      </div>
+                      <div class="u-form-group u-label-top u-form-group-5">
+                        <label for="text-2283" class="u-label">Event description / note <div class="info">
+                          <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                            <span class="extra-info">Use this field to inform guests directly about the details of the event and recommended or required precautions against COVID-19.</span>
+                        </div></label>
+                        <textarea cols="50" name="Description" rows="5" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white"></textarea>
+                      </div>
+                      <div class="u-align-right u-form-group u-form-submit">
+                        <a href="#" class="u-active-none u-border-1 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-submit u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">SUBMIT</a>
+                        <input type="submit" value="submit" class="u-form-control-hidden">
+                      </div>
+                      <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+                      <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+                      <input type="hidden" value="" name="recaptchaResponse">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+<script>
+  if (true){
+    document.getElementById('select-2690').style.display = 'none';
+    document.getElementById('select-110d').style.display = 'none';
+    document.getElementById('select-d93e').style.display = 'none';
+    document.getElementById('select-be80').style.display = 'none';
+
+  }
+  var checkC = document.getElementById("checkbox-ec0f")
+  checkC.onchange = function() {
+     if (checkC.checked) {
+      document.getElementById('select-2690').style.display = 'block';
+      document.getElementById('select-110d').style.display = 'block';
+      document.getElementById('select-d93e').style.display = 'block';
+      document.getElementById('select-be80').style.display = 'block';
+      document.getElementById('select-1234').classList.add("fade-in")
+     } else {
+      document.getElementById('select-2690').style.display = 'none';
+      document.getElementById('select-110d').style.display = 'none';
+      document.getElementById('select-d93e').style.display = 'none';
+      document.getElementById('select-be80').style.display = 'none';
+      document.getElementById('select-1234').classList.remove("fade-in")
+     }
+  } 
+
+
+if (document.getElementById("select-mask").value == 0.3 && document.getElementById("risk").value == 1){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'block';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+}
+function hide(){
+  if (document.getElementById("select-mask").value == 0.05 && document.getElementById("risk").value == 1){
+    document.getElementById('N951').style.display = 'block';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 0.05 && document.getElementById("risk").value == 0.1){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'block';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 0.05 && document.getElementById("risk").value == 0.01){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'block';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';  
+  }
+  if (document.getElementById("select-mask").value == 0.1 && document.getElementById("risk").value == 1){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'block';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';  
+  }
+  if (document.getElementById("select-mask").value == 0.1 && document.getElementById("risk").value == 0.1){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'block';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 0.1 && document.getElementById("risk").value == 0.01){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'block';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 0.3 && document.getElementById("risk").value == 1){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'block';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 0.3 && document.getElementById("risk").value == 0.1){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'block';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 0.3 && document.getElementById("risk").value == 0.01){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'block';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 0.5 && document.getElementById("risk").value == 1){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'block';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 0.5 && document.getElementById("risk").value == 0.1){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'block';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 0.5 && document.getElementById("risk").value == 0.01){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'block';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 1 && document.getElementById("risk").value == 1){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'block';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 1 && document.getElementById("risk").value == 0.1){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'block';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'none';
+  }
+  if (document.getElementById("select-mask").value == 1 && document.getElementById("risk").value == 0.01){
+    document.getElementById('N951').style.display = 'none';
+    document.getElementById('single1').style.display = 'none';
+    document.getElementById('multi1').style.display = 'none';
+    document.getElementById('surgical1').style.display = 'none';
+    document.getElementById('nomask1').style.display = 'none';
+    document.getElementById('N952').style.display = 'none';
+    document.getElementById('single2').style.display = 'none';
+    document.getElementById('multi2').style.display = 'none';
+    document.getElementById('surgical2').style.display = 'none';
+    document.getElementById('nomask2').style.display = 'none';
+    document.getElementById('N953').style.display = 'none';
+    document.getElementById('single3').style.display = 'none';
+    document.getElementById('multi3').style.display = 'none';
+    document.getElementById('surgical3').style.display = 'none';
+    document.getElementById('nomask3').style.display = 'block';
+  }
+}
+</script>
+{% endblock %}

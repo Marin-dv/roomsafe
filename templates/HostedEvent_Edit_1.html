@@ -1,0 +1,430 @@
+{% extends "layout.html" %}
+<!DOCTYPE html>
+
+
+{% block main %}
+<html style="font-size: 16px;">
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='HostedEvent_Edit_1.css') }}" media="screen">
+  </head>
+  <body class="u-body">
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Asap:400,500,700');
+
+body {
+	left: 0;
+	top: 0;
+	background: white;
+}
+
+#container {
+	width: 100%;
+	height: 36px;
+	margin: auto;
+	position: relative;
+	border-radius: 6px;
+	overflow: hidden;
+	user-select: none;
+	cursor: pointer;
+}
+
+.inner-container {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: inherit;
+	height: inherit;
+	text-transform: uppercase;
+	font-size: .6em;
+	letter-spacing: .2em;
+}
+
+.inner-container:first-child {
+	background: #e9e9e9;
+	color: #a9a9a9;
+}
+
+.inner-container:nth-child(2) {
+	background: #6442d4;
+	color: white;
+	clip-path: inset(0 50% 0 0);
+	transition: .3s cubic-bezier(0,0,0,1);
+}
+
+.toggle {
+	width: 50%;
+	position: absolute;
+	height: inherit;
+	display: flex;
+	box-sizing: border-box;
+}
+
+.toggle p {
+	margin: auto;
+}
+
+.toggle:nth-child(1) {
+	right: 0;
+}
+
+      mark {
+  background-color: rgb(140, 141, 196);
+  color: black;
+}
+body {
+	background-color: white !important;
+
+}
+
+* {
+  transition: all .3s ease;
+}
+
+.extra-info {
+  display: none;
+  font-size: 18px;
+  max-width:350px;
+	position: relative;
+  left: 30px;
+  z-index: 2 !important;
+  top: -20px;
+}
+
+
+.info:hover .extra-info {
+  display: block;
+}
+
+
+.info {
+  position: absolute;
+  padding-left: 5px;
+  width: 100px;
+  border-radius: 15px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.info:hover {
+  background-color:  #CECECE;
+  padding: 0 0 0 5px;
+  width: 400px;
+  z-index: 2 !important;
+  text-align: left !important;
+}
+
+    </style>
+    <section class="u-clearfix u-section-1" id="sec-1aab">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-form u-form-1">
+          <form onsubmit="check()" novalidate name="HostedEvent_Edit_1" action="/host" method="POST" class="needs-validation u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" style="padding: 19px;" id="form">
+            <strong><h4>Create/Modify Event (1)  
+            </h4></strong>
+            <hr>
+
+            <div class="u-form-group u-label-top u-form-group-1">
+              <small style="color:#FF0000">* Mandatory fields</small>
+              <hr>
+              <h5>General information</h5>
+              <hr>
+              <label for="text-8e81" class="u-label">Event name <small style="color:#FF0000">*</small></label>
+              <input type="text" id="text-8e81" name="name" onkeyup="check_name()" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+            </div>
+            <div class="u-form-group u-label-top u-form-group-2">
+              <label for="text-4d0e" class="u-label">Location <small style="color:#FF0000">*</small></label>
+              <input type="text" placeholder="" id="text-4d0e" name="location" onkeyup="check_location()" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            </div>
+            <div class="u-form-date u-form-group u-form-partition-factor-2 u-label-top u-form-group-3">
+              <label for="text-74a1" class="u-label">Date <small style="color:#FF0000">*</small></label>
+              <input type="date" placeholder="select-1" id="text-74a1" name="date" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+            </div>
+            <div class="u-form-group u-form-partition-factor-2 u-label-top u-form-group-4">
+              <label for="text-f30b" class="u-label">Starting time <small style="color:#FF0000">*</small></label>
+              <input type="text" placeholder="enter time of day" id="text-f30b" name="stime" onkeyup="check_stime()" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+            </div>
+            <div class="u-form-group u-label-top u-form-group-1">
+            <hr>
+            <h5>Venue information <div class="info">
+              <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                <span class="extra-info">The mechanism of disease transmission is fundamentally different indoors and outdoors. Think about whether your event is predominantly outdoor, where food is served/eaten, and where guests will be spending the majority of their time to determine the indoor/outdoor status of your venue.</span>
+            </div></h5>
+            <hr>
+              
+              <input type="checkbox" style="display: none;" id="checkoutdoor" name="checkoutdoor">
+              <div id="container">
+                <div class="inner-container">
+                  <div class="toggle">
+                    <p>Outdoor</p>
+                  </div>
+                  <div class="toggle">
+                    <p>Indoor</p>
+                  </div>
+                </div>
+                <div class="inner-container" id='toggle-container'>
+                  <div class="toggle">
+                    <p>Outdoor</p>
+                  </div>
+                  <div class="toggle">
+                    <p>Indoor</p>
+                  </div>
+                </div>
+              </div>
+            
+            <br>
+            </div>
+            <div id="onetwo1" class="u-form-group u-form-select u-label-top u-form-group-7">
+              
+              <label for="text-2cc1" class="u-label">venue size (m²) <small style="color:#FF0000">*</small></label>
+              <div class="info">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                  <span class="extra-info">Enter the surface area of the floor (length x width of room, m²). Min: 10, Max: 5000</span>
+              </div>
+              <input type="text" placeholder="enter floor surface area as a number" id="text-2cc1" onkeyup="check_surfarea()" name="surfarea" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+              <div id="modal">
+	             <div class="mask"></div>
+	             <div class="container auto popup">
+	  	          <div class="message"></div>
+		              <a href="" class="close">&times;</a>
+	             </div>
+              </div>
+            </div>
+            <div id="onetwoone" class="u-form-group u-form-select u-label-top u-form-group-7">
+              <label for="text-f1aa" class="u-label">Ceiling height (m) <small style="color:#FF0000">*</small></label>
+              <div class="info">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                  <span class="extra-info">Enter height from floor to ceiling (m). Min: 2, Max: 15</span>
+              </div>
+              <input type="text" placeholder="enter height of ceiling as a number" onkeyup="check_ceiling()" id="text-f1aa" name="ceiling" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+            </div>
+            <div id="onetwoonetwo" class="u-form-group u-form-select u-label-top u-form-group-7">
+              <label for="select-06a8" class="u-label">Ventilation type <small style="color:#FF0000">*</small></label>
+              <div class="info">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                  <span class="extra-info">The flow of air out of the room slows the spread of COVID-19. Air can move in and out through open windows and doors or through special units. Mechanical fans can accelerate air flow. </span>
+              </div>
+            </div>
+            <div id="onetwoonetwo1" class="u-form-group u-form-select u-label-top u-form-group-7">
+              <div class="u-form-select-wrapper">
+                <select id="select-06a8" name="recirculation" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required>
+                  <option value="0.1" disabled selected="selected">select ventilation type</option>
+                  <option value="0.3">closed windows (0.3 Air-Changes Per Hour)</option>
+                  <option value="2">open windows (2.0 ACH)</option>
+                  <option value="3">mechanical ventilation only (3.0 ACH)</option>
+                  <option value="6">open windows with fan (6.0 ACH)</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div id="onetwoonetwo2" class="u-form-checkbox u-form-group u-label-top u-form-group-9">
+              <input type="checkbox" id="checkbox-7f93" name="checkbox-1" value="On" onclick="enable_cb()">
+              <label for="checkbox-7f93" class="u-label">Air filter used <small style="color:#FF0000">*</small><div class="info">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                  <span class="extra-info">Air filters recirculate the room air and remove particulate matter. The MERV rating of your air filter specifies the efficiency of your product at combing the air, in this case for aerosol droplets. </span>
+              </div> </label>            
+            </div>
+            <div class="u-form-group u-form-select u-label-top u-form-group-10" id="select-6b2d">
+              <label for="select-6b2d" class="u-form-control-hidden u-label" ></label>
+              <div class="u-form-select-wrapper">
+                <div id="select-123">
+                <select id="select-6b2d" name="outdoor" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                  <option value="0.001" disabled selected="selected">select air filter quality </option>
+                  <option value="0.99">≥ MERV 17 – HEPA or ULPA filter (99% efficiency) </option>
+                  <option value="0.9">MERV 14 - surgery quality (90%) </option>
+                  <option value="0.6">MERV 10 - hospital quality (60%) </option>
+                  <option value="0.2">MERV 6 - industrial quality (20%) </option>
+                  <option value="0.1">MERV 2 - residential window air condition (10%)</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+                </div>
+              </div>
+            </div>
+            <div class="u-form-group u-form-select u-label-top u-form-group-10" id="select-6bb2d">
+              <label for="select-6bb2d" class="u-form-control-hidden u-label"></label>
+              <div class="u-form-select-wrapper">
+                <select id="select-6bb2d" name="filtration" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                  <option value="0.001" disabled selected="selected">select recirculation rate</option>
+                  <option value="0.3">slow (0.3 Air Changes Per Hour) </option>
+                  <option value="1">moderate (1.0 ACH) </option>
+                  <option value="10">fast (10.0 ACH) </option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-select u-label-top u-form-group-1">
+              <hr>
+              <strong><h5> Activity information
+              </h5></strong>
+              <hr>
+              <label for="select-b568" class="u-label">Activity level at event <small style="color:#FF0000">*</small></label>
+              <div class="info">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                  <span class="extra-info">Aerosol droplets carry the SARS-CoV-2 virus. Intense activity causes more emission of aerosol droplets, while speech volume leads to a higher concentration of aerosol droplets in exhaled air, e.g., singing and shouting spread COVID-19 more easily than whispering and gentle speech. (Note: 1 quantum = 1 expected transmission) </span>
+              </div> 
+              <div class="u-form-select-wrapper">
+                <select id="select-b568" name="Qbh" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+                  <option value="0.1" disabled selected>select level of activity expected</option>
+                  <option value="0.5">stationary - standing, sitting, laying down (0.5 m³/hr breathing rate)</option>
+                  <option value="1.38">low exertion - walking around, light movement (1.38 m³/hr)</option>
+                  <option value="2.35">moderate exertion - formal dancing, moderate exercise (2.35 m³/hr)</option>
+                  <option value="3.3">high exertion - fast/energetic dancing, intense exercise (3.30 m³/hr)</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-select u-label-top u-form-group-2">
+            <label for="select-6c09" class="u-form-control-hidden u-label"></label>
+              <div class="u-form-select-wrapper">
+                <select id="select-6c09" name="Cqh" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+                  <option value="0.1" disabled selected>select level of speaking expected</option>
+                  <option value="9">silence (9 quanta per m³)</option>
+                  <option value="29">whispering (29 q/m³)</option>
+                  <option value="72">talking (72 q/ m³)</option>
+                  <option value="142">loud talking (142 q/m³)</option>
+                  <option value="970">singing (970 q/m³)</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>
+            <div class="u-form-group u-form-select u-label-top u-form-group-2">
+              <label for="select-b566" class="u-label">Guest age profile <small style="color:#FF0000">*</small></label>
+                <div class="info">
+                  <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                    <span class="extra-info">Vulnerability to COVID-19 increases with age. The age demographic of the event is defined by the age range of most of the guests attending. If there is no clear demographic, then it is cautious to select the age range of the oldest group attending. </span>
+                </div> 
+              <div class="u-form-select-wrapper">
+                <select id="select-b566" name="ageAvg" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+                  <option value="" disabled selected>select the age of guests</option>
+                  <option value="0.23">children (0-14)</option>
+                  <option value="0.68">adults (15-64)</option>
+                  <option value="1">elderly (65+)</option>
+                </select>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1" class="u-caret"><path fill="currentColor" d="M4 8L0 4h8z"></path></svg>
+              </div>
+            </div>    
+            <div class="u-form-group u-label-top u-form-group-1">
+              <hr>
+              <h5>Environmental information</h5>
+              <hr>
+            </div>
+            <div class="u-form-group u-form-partition-factor-2 u-label-top u-form-group-11">
+
+              <label for="text-b318" class="u-label">Expected % humidity <small style="color:#FF0000">*</small></label>
+              <div class="info">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                  <span class="extra-info">For humidity, use the relative humidity forecast for the day of your event. The relative humidity is given as a percentage on many weather sites, e.g. <a href="https://www.weather.com.">https://www.weather.com.</a> <br> Expected relative humidity in most places is between 30% and 70%. (Note: relative humidity is different from the % chance of precipitation.)</span>
+              </div> 
+              <input type="text" placeholder="% number" onkeyup="check_humidity()" id="text-b318" name="humidity" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            </div>
+            <div class="u-form-group u-form-partition-factor-2 u-label-top u-form-group-12">
+              <label for="text-8eba" class="u-label">Approximate local incidence <small style="color:#FF0000">*</small></label>
+              <div class="info">
+                <a><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></a>
+                  <span class="extra-info">The local incidence is the number of individuals infected with COVID-19 in a sample of 100000 individuals in the region—in this case over a 7-day period.  Various COVID-related resources provide this number, e.g. <a href="https://www.statista.com/statistics/1139048/">https://www.statista.com/statistics<br> /1139048/coronavirus-case-rates-in-the-past-7-days-in-europe-by-country/</a> <br> <BR> </span>
+              </div> 
+              <input type="text" placeholder="number cases / 100,000 over last 7 days" onkeyup="check_localinci()" id="text-8eba" name="localinci" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+            </div>
+            <div class="u-align-right u-form-group u-form-submit">
+              <a href="HostedEvent_Edit_2.html" class="u-border-1 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-btn-submit u-button-style u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-1">next page >></a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+            <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+            <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+            <input type="hidden" value="" name="recaptchaResponse">
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+<script>
+var toggle = document.getElementById('container');
+var toggleContainer = document.getElementById('toggle-container');
+var toggleNumber;
+
+toggle.addEventListener('click', function() {
+	toggleNumber = !toggleNumber;
+	if (toggleNumber) {
+		toggleContainer.style.clipPath = 'inset(0 0 0 50%)';
+		toggleContainer.style.backgroundColor = '#ab88dc';
+
+    document.getElementById("onetwoone").style.display = "none";
+    document.getElementById("onetwoonetwo").style.display = "none";
+    document.getElementById("onetwoonetwo1").style.display = "none";
+    document.getElementById("onetwoonetwo2").style.display = "none";
+    document.getElementById('select-6b2d').style.display = 'none';
+    document.getElementById('select-6bb2d').style.display = 'none';
+
+
+    document.getElementById('onetwoone').classList.remove("fade-in")
+    document.getElementById('onetwoonetwo').classList.remove("fade-in")
+    document.getElementById('onetwoonetwo1').classList.remove("fade-in")
+    document.getElementById('onetwoonetwo2').classList.remove("fade-in")
+    document.getElementById("checkoutdoor").checked = true;
+	} else {
+		toggleContainer.style.clipPath = 'inset(0 50% 0 0)';
+		toggleContainer.style.backgroundColor = '#6442d4';
+    document.getElementById("checkoutdoor").checked = false;
+    document.getElementById("onetwoone").style.display = "block";
+    document.getElementById("onetwoonetwo").style.display = "block";
+    document.getElementById("onetwoonetwo1").style.display = "block";
+    document.getElementById("onetwoonetwo2").style.display = "flex";
+
+
+    document.getElementById('onetwoone').classList.add("fade-in")
+    document.getElementById('onetwoonetwo').classList.add("fade-in")
+    document.getElementById('onetwoonetwo1').classList.add("fade-in")
+    document.getElementById('onetwoonetwo2').classList.add("fade-in")
+
+	}
+	console.log(toggleNumber)
+});
+
+  
+
+  var checkB = document.getElementById("checkbox-7f93")
+  if (true){
+    document.getElementById('select-6b2d').style.display = 'none';
+    document.getElementById('select-6bb2d').style.display = 'none';
+
+  }
+  checkB.onchange = function() {
+     if (checkB.checked) {
+      document.getElementById('select-6b2d').style.display = 'block';
+      document.getElementById('select-6bb2d').style.display = 'block';
+      document.getElementById('select-123').classList.add("fade-in")
+        
+     } else {
+      document.getElementById('select-6b2d').style.display = 'none';
+      document.getElementById('select-6bb2d').style.display = 'none';
+      document.getElementById('select-123').classList.remove("fade-in")
+     }
+  } 
+  $(".bouton").click(function(){
+	  $("#modal .message").html("Contenu de ma modal");
+	  $("#modal").addClass("open");
+  });
+  $("#modal .mask, #modal a.close").click(function(){
+	  $("#modal").removeClass("open");
+	  return false;
+  });
+
+</script>
+{% endblock %}
