@@ -1,0 +1,12 @@
+# Local database (create it with init_db.py)
+*.db
+
+# Flask and Python
+flask_session/
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Server logs
+*.log
