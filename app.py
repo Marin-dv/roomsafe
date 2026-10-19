@@ -1101,7 +1101,7 @@ def register():
         username=request.form.get("username")
         db.execute("INSERT INTO users (username, hash, Email) VALUES (?, ?, ?)", (username, hash, current_email))
         conn.commit()
-        db.execute("SELECT id FROM users WHERE username = :username AND hash = ?", (username, hash))
+        db.execute("SELECT id FROM users WHERE username = ? AND hash = ?", (username, hash))
         user_id = db.fetchall()
         session["user_id"] = user_id[0][0]
 
